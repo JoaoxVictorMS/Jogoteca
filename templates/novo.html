@@ -1,0 +1,42 @@
+{% extends "template.html "%}
+{% block conteudo %}
+      <!-- Enctype permite de fato inserir imagens na aplicação -->
+      <form class="formularioJogo" action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
+
+        <!-- Aqui fica a imagem placeholder  -->
+        <figure class="img-thumbnail col-md-4 formularioImagem">
+          <!-- O src desta iagem não e um caminho bruto, mas sim uma rota que passa justamente essa imagem  -->
+          <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo='PLACEHOLDER =.jpg')}}">
+          <figcaption>
+            <label class="fileContainer">
+              Mudar capa
+              <!-- Associa-se informações do front-end para as rotas através da tag name -->
+              <input type="file" name="arquivo" accept=".jpg">
+            </label>
+          </figcaption>
+        </figure>
+
+        
+        <fieldset>
+          <!-- Token do csrf -->
+          {{ form.csrf_token }}
+          <!-- Os forms abaixo carregam os inputs desenvolvidos em helpers.oy na classe FormularioJogo e as labels dos mesmos -->
+          <div class="form-group inputBox">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.categoria.label(class="form-label") }}
+            {{ form.categoria(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.console.label(class="form-label") }}
+            {{ form.console(class="form-control") }}
+          </div>
+          <div class="form-group buttons">
+            {{ form.salvar(class="btn btn-primary") }}
+            <a class="btn btn-secondary" href="{{ url_for('index') }}">Voltar</a>
+          </div>
+        </fieldset>
+      </form>
+{% endblock %}

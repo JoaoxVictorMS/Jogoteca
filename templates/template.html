@@ -1,0 +1,40 @@
+<!-- Arquivo html pai, herdado por novo.html e lista.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jogoteca</title>
+    <!-- OS dois pontos, em href, significa ir para o diretório mais acima -->
+    <!-- Torna-se inviável, conforme o prograa fica mais complexo, colocar o caminho da pasta exata que o programa deve acessar -->
+    <!-- Para resolver esse problema, o flask possui URLs dinâmicas, conforme a estrutura abaixo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+  <body>
+      <div class="container">
+
+          <!-- Esta estrutura garante que apareça as mensagens corretas -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <div class="page-header">
+            <h1>{{ titulo }}</h1>
+        </div>
+        <!-- Bloco de conteúdo que pertence a cada um dos arquivos filhos (novo e lista) -->
+        {% block conteudo %}{% endblock %}
+
+        <!-- Os scripts abaixo são respnsáveis por mudar a imagem padrão para a imagem que o usuário enviou -->
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+      </div>
+  </body>
+</html>
