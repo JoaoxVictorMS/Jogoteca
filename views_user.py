@@ -11,6 +11,9 @@ def login():
     #Instância da classe FormularioUsuario
     form = FormularioUsuario(request.form)
 
+    # Caso a verificação da variável "proxima" não for igual a none, ela recebera o index, indicando que o usuário logou com êxito
+    if proxima == None:
+        return render_template('login.html', proxima=url_for('index'), form=form)
     # Enviando as informações da proxima página para login.html
     return render_template('login.html', proxima=proxima, form=form)
 
