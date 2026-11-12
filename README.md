@@ -1,7 +1,7 @@
 <h1 align="center" style="font-weight: bold;">Jogoteca</h1>
 
 <p align="center">
-  <img src="m_project/logo.png" alt="logo" width="500px">
+  <img src="m_project/logo.png" alt="logo" width="600px">
 </p>
 
 [PYTHON__BADGE]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
@@ -25,7 +25,7 @@
 <h2 id="layout">🎨 Preview</h2>
 
 <p align="center">
-    <img src="m_project/Jogoteca.gif" alt="Imagem" width="600px">
+    <img src="m_project/Jogoteca.gif" alt="Imagem" width="700px">
 </p>
 
 <h2 id="tech">💻 Tecnologias</h2>
