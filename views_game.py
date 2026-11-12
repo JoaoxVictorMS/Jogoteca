@@ -105,8 +105,8 @@ def criar():
 
     # request.form captura as informações das tags name dos insputs em novo.html
     nome = form.nome.data
-    categoria = form.nome.categoria
-    console = form.nome.console
+    categoria = form.categoria.data
+    console = form.console.data
 
     jogo = Jogos.query.filter_by(nome=nome).first()
 

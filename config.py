@@ -1,6 +1,6 @@
 import os
 # Senha mestre
-SECRET_KEY = 'santosfc'
+SECRET_KEY = 'senha'
 
 # URI que realiza a conexão com o banco de dados MySQL
 # Colocando a barra invertida, faz possível colocar o código em baixo dela, como mostrado abaixo
